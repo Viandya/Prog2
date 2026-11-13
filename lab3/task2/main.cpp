@@ -9,8 +9,8 @@ int main()
     std::cout << "Сумма элементов массива: " << sumArray(arr, arr + size) << std::endl;
 
     // 6. Получаем указатель на функцию, затем вызываем функцию по указателю
-    Operation plus = getOperation(‘+’);
-    Operation minus = getOperation(‘-‘);
+    Operation plus = getOperation('+');
+    Operation minus = getOperation('-');
 
     if (plus != nullptr)
     {

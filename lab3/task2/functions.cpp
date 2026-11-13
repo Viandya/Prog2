@@ -22,11 +22,11 @@ int difference(int a, int b)
 
 Operation getOperation(char op)
 {
-    if (op == ‘+’)
+    if (op == '+')
     {
         return sum;
     }
-    if (op == ‘-‘)
+    if (op == '-')
     {
         return difference;
     }
