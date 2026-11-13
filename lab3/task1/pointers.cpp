@@ -1,5 +1,5 @@
 #include <iostream>
-#include «pointers.h»
+#include "pointers.h"
 
 void basicPointer()
 {
@@ -10,14 +10,14 @@ void basicPointer()
     int* ptr = &number;
 
     // 3. Адрес и значение по этому адресу
-    std::cout << «Адрес в указателе: « << ptr << std::endl;
-    std::cout << «Значение по адресу: « << *ptr << std::endl;
+    std::cout << "Адрес в указателе: " << ptr << std::endl;
+    std::cout << "Значение по адресу: " << *ptr << std::endl;
 
     // 4. Меняем значение через указатель
     *ptr = 100;
 
     // 5. Проверяем, что переменная тоже изменилась
-    std::cout << «number после изменения: « << number << std::endl;
+    std::cout << "number после изменения: " << number << std::endl;
 }
 
 void arrayPointer()
@@ -28,10 +28,10 @@ void arrayPointer()
 
     // 7. Вывод всех элементов через указатель
     int* ptr = arr;
-    std::cout << «Элементы массива: «;
+    std::cout << "Элементы массива: ";
     for (int i = 0; i < size; i++)
     {
-        std::cout << *(ptr + i) << « «;
+        std::cout << *(ptr + i) << " ";
     }
     std::cout << std::endl;
 }
@@ -49,5 +49,5 @@ void constPointer()
     // constPtr = &other; // ОШИБКА КОМПИЛЯТОРА (раскомментируйте обе строки, чтобы увидеть)
 
     *constPtr = 55; // значение менять можно
-    std::cout << «five после изменения через указатель: « << five << std::endl;
+    std::cout << "five после изменения через указатель: " << five << std::endl;
 }
