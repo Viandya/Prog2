@@ -10,5 +10,5 @@ public:
     SingleUseWeapon(std::string name, float damage, float weight, WeaponType type);
     SingleUseWeapon();
 
-    void Attack() override;
+    void attack() override;
 };

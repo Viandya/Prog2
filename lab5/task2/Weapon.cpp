@@ -12,42 +12,42 @@ Weapon::~Weapon() {
               << ", вес: " << weight << " кг\n";
 }
 
-std::string Weapon::GetName() {
+std::string Weapon::getName() {
     return name;
 }
 
-float Weapon::GetDamage() {
+float Weapon::getDamage() {
     return damage;
 }
 
-float Weapon::GetWeight() {
+float Weapon::getWeight() {
     return weight;
 }
 
-void Weapon::SetDamage(float damage) {
+void Weapon::setDamage(float damage) {
     this->damage = damage; // Отличаем поле объекта от одноимённого параметра
 }
 
-bool Weapon::IsTooHeavy(float maxWeight) {
+bool Weapon::isTooHeavy(float maxWeight) {
     return maxWeight < weight;
 }
 
-float Weapon::GetTotalWeight(const Weapon& other) {
-    return GetTotalWeight(other.weight);
+float Weapon::getTotalWeight(const Weapon& other) {
+    return getTotalWeight(other.weight);
 }
 
-float Weapon::GetTotalWeight(float otherWeight) {
+float Weapon::getTotalWeight(float otherWeight) {
     return weight + otherWeight;
 }
 
-WeaponType Weapon::GetType() {
+WeaponType Weapon::getType() {
     return type;
 }
 
 bool Weapon::operator>(Weapon& other) {
-    return GetDamage() > other.GetDamage();
+    return getDamage() > other.getDamage();
 }
 
 bool Weapon::operator<(Weapon& other) {
-    return GetDamage() < other.GetDamage();
+    return getDamage() < other.getDamage();
 }

@@ -8,15 +8,15 @@ MagicWeapon::MagicWeapon(std::string name, float damage, float weight,
 MagicWeapon::MagicWeapon()
     : MagicWeapon("Магический кинжал", 10.0f, 1.0f, WeaponType::ONEHANDED, 5.0f) {}
 
-float MagicWeapon::GetAdditionalDamage() {
+float MagicWeapon::getAdditionalDamage() {
     return additionalDamage;
 }
 
-float MagicWeapon::GetDamage() {
+float MagicWeapon::getDamage() {
     // Явно вызываем метод родителя, чтобы получить базовую часть урона.
-    return Weapon::GetDamage() + additionalDamage;
+    return Weapon::getDamage() + additionalDamage;
 }
 
-void MagicWeapon::Attack() {
+void MagicWeapon::attack() {
     std::cout << "Атакуем магическим оружием\n";
 }

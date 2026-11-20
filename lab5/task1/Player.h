@@ -7,5 +7,5 @@ struct Player {
     std::string login;
     std::string password;
 
-    void Print(); // По заданию метод вывода находится в структуре
+    void print(); // По заданию метод вывода находится в структуре
 };

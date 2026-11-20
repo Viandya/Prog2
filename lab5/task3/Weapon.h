@@ -24,19 +24,19 @@ public:
     ~Weapon();
 
     // Чисто виртуальный метод делает Weapon абстрактным классом.
-    virtual void Attack() = 0;
+    virtual void attack() = 0;
 
-    std::string GetName();
-    virtual float GetDamage(); // Может быть переопределён в дочернем классе
-    float GetWeight();
-    WeaponType GetType();
-    void SetDamage(float damage);
+    std::string getName();
+    virtual float getDamage(); // Может быть переопределён в дочернем классе
+    float getWeight();
+    WeaponType getType();
+    void setDamage(float damage);
 
     // Принимаем ссылку, чтобы сохранить поведение магического оружия.
     bool operator>(Weapon& other);
     bool operator<(Weapon& other);
 
-    bool IsTooHeavy(float maxWeight);
-    float GetTotalWeight(const Weapon& other);
-    float GetTotalWeight(float otherWeight);
+    bool isTooHeavy(float maxWeight);
+    float getTotalWeight(const Weapon& other);
+    float getTotalWeight(float otherWeight);
 };

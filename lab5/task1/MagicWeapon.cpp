@@ -7,6 +7,6 @@ MagicWeapon::MagicWeapon(std::string name, float damage, float weight,
 MagicWeapon::MagicWeapon()
     : MagicWeapon("Магический кинжал", 10.0f, 1.0f, WeaponType::ONEHANDED, 5.0f) {}
 
-float MagicWeapon::GetAdditionalDamage() {
+float MagicWeapon::getAdditionalDamage() {
     return additionalDamage;
 }

@@ -9,17 +9,17 @@ int main() {
     MagicWeapon bow("Магический лук", 35.0f, 2.0f, WeaponType::BOW, 5.0f);
     MagicWeapon defaultMagic;
 
-    std::cout << "Урон меча: " << sword.GetDamage() << '\n'; // 30
-    std::cout << "Урон топора: " << axe.GetDamage() << '\n'; // 40
-    std::cout << "Базовый урон посоха: " << staff.Weapon::GetDamage() << '\n'; // 20
-    std::cout << "Дополнительный урон посоха: " << staff.GetAdditionalDamage() << '\n'; // 25
-    std::cout << "Полный урон посоха: " << staff.GetDamage() << '\n'; // 45
-    std::cout << "Полный урон магического лука: " << bow.GetDamage() << '\n'; // 40
-    std::cout << "Урон магического оружия по умолчанию: " << defaultMagic.GetDamage() << '\n'; // 15
+    std::cout << "Урон меча: " << sword.getDamage() << '\n'; // 30
+    std::cout << "Урон топора: " << axe.getDamage() << '\n'; // 40
+    std::cout << "Базовый урон посоха: " << staff.Weapon::getDamage() << '\n'; // 20
+    std::cout << "Дополнительный урон посоха: " << staff.getAdditionalDamage() << '\n'; // 25
+    std::cout << "Полный урон посоха: " << staff.getDamage() << '\n'; // 45
+    std::cout << "Полный урон магического лука: " << bow.getDamage() << '\n'; // 40
+    std::cout << "Урон магического оружия по умолчанию: " << defaultMagic.getDamage() << '\n'; // 15
 
     // Указатель имеет тип Weapon*, но вызывает метод MagicWeapon.
     Weapon* weapon = &staff;
-    std::cout << "Урон посоха через Weapon*: " << weapon->GetDamage() << '\n'; // 45
+    std::cout << "Урон посоха через Weapon*: " << weapon->getDamage() << '\n'; // 45
 
     // Операторы возвращают bool: в консоли 1 означает true, 0 — false.
     std::cout << "Меч > топор: " << (sword > axe) << '\n'; // 0
@@ -41,9 +41,9 @@ int main() {
     std::cout << "Сравнение через Weapon& (посох > лук): " << (first > second) << '\n'; // 1
     std::cout << "Сравнение через Weapon& (посох < лук): " << (first < second) << '\n'; // 0
 
-    staff.SetDamage(10.0f); // Меняем базовую часть, дополнительная остаётся 25
-    std::cout << "Урон посоха после SetDamage: " << staff.GetDamage() << '\n'; // 35
-    std::cout << "Посох < топор после SetDamage: " << (staff < axe) << '\n'; // 1
+    staff.setDamage(10.0f); // Меняем базовую часть, дополнительная остаётся 25
+    std::cout << "Урон посоха после setDamage: " << staff.getDamage() << '\n'; // 35
+    std::cout << "Посох < топор после setDamage: " << (staff < axe) << '\n'; // 1
 
     // Все объекты автоматические; weapon лишь указывает на staff.
     return 0;

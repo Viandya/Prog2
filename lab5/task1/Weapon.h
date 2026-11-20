@@ -23,13 +23,13 @@ public:
     Weapon();
     ~Weapon();
 
-    std::string GetName();
-    float GetDamage();
-    float GetWeight();
-    WeaponType GetType();
-    void SetDamage(float damage);
+    std::string getName();
+    float getDamage();
+    float getWeight();
+    WeaponType getType();
+    void setDamage(float damage);
 
-    bool IsTooHeavy(float maxWeight);
-    float GetTotalWeight(const Weapon& other);
-    float GetTotalWeight(float otherWeight);
+    bool isTooHeavy(float maxWeight);
+    float getTotalWeight(const Weapon& other);
+    float getTotalWeight(float otherWeight);
 };

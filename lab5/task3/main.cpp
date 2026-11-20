@@ -13,17 +13,17 @@ int main() {
     MagicWeapon bow("Магический лук", 35.0f, 2.0f, WeaponType::BOW, 5.0f);
     MagicWeapon defaultMagic;
 
-    std::cout << "Урон меча: " << sword.GetDamage() << '\n'; // 30
-    std::cout << "Урон топора: " << axe.GetDamage() << '\n'; // 40
-    std::cout << "Базовый урон посоха: " << staff.Weapon::GetDamage() << '\n'; // 20
-    std::cout << "Дополнительный урон посоха: " << staff.GetAdditionalDamage() << '\n'; // 25
-    std::cout << "Полный урон посоха: " << staff.GetDamage() << '\n'; // 45
-    std::cout << "Полный урон магического лука: " << bow.GetDamage() << '\n'; // 40
-    std::cout << "Урон магического оружия по умолчанию: " << defaultMagic.GetDamage() << '\n'; // 15
+    std::cout << "Урон меча: " << sword.getDamage() << '\n'; // 30
+    std::cout << "Урон топора: " << axe.getDamage() << '\n'; // 40
+    std::cout << "Базовый урон посоха: " << staff.Weapon::getDamage() << '\n'; // 20
+    std::cout << "Дополнительный урон посоха: " << staff.getAdditionalDamage() << '\n'; // 25
+    std::cout << "Полный урон посоха: " << staff.getDamage() << '\n'; // 45
+    std::cout << "Полный урон магического лука: " << bow.getDamage() << '\n'; // 40
+    std::cout << "Урон магического оружия по умолчанию: " << defaultMagic.getDamage() << '\n'; // 15
 
     // Указатель имеет тип Weapon*, но вызывает метод MagicWeapon.
     Weapon* weapon = &staff;
-    std::cout << "Урон посоха через Weapon*: " << weapon->GetDamage() << '\n'; // 45
+    std::cout << "Урон посоха через Weapon*: " << weapon->getDamage() << '\n'; // 45
 
     // Операторы возвращают bool: в консоли 1 означает true, 0 — false.
     std::cout << "Меч > топор: " << (sword > axe) << '\n'; // 0
@@ -45,42 +45,42 @@ int main() {
     std::cout << "Сравнение через Weapon& (посох > лук): " << (first > second) << '\n'; // 1
     std::cout << "Сравнение через Weapon& (посох < лук): " << (first < second) << '\n'; // 0
 
-    staff.SetDamage(10.0f); // Меняем базовую часть, дополнительная остаётся 25
-    std::cout << "Урон посоха после SetDamage: " << staff.GetDamage() << '\n'; // 35
-    std::cout << "Посох < топор после SetDamage: " << (staff < axe) << '\n'; // 1
+    staff.setDamage(10.0f); // Меняем базовую часть, дополнительная остаётся 25
+    std::cout << "Урон посоха после setDamage: " << staff.getDamage() << '\n'; // 35
+    std::cout << "Посох < топор после setDamage: " << (staff < axe) << '\n'; // 1
 
     std::cout << "\nЗадание 3: абстрактный класс и атаки\n";
-    weapon->Attack(); // Через Weapon* вызывается MagicWeapon::Attack.
+    weapon->attack(); // Через Weapon* вызывается MagicWeapon::attack.
 
     SingleUseWeapon throwingKnife;
-    throwingKnife.Attack(); // Первая атака устанавливает used = true.
-    throwingKnife.Attack(); // Повторная атака запрещена.
+    throwingKnife.attack(); // Первая атака устанавливает used = true.
+    throwingKnife.attack(); // Повторная атака запрещена.
 
     std::cout << "\nШаблон с двумя типами оружия\n";
     MagicWeapon dagger;
     SingleUseWeapon dart("Дротик", 12.0f, 0.3f, WeaponType::ONEHANDED);
     WeaponHands<MagicWeapon, SingleUseWeapon> hands(dagger, dart);
-    std::cout << "Левая рука: " << hands.GetLeftWeapon().GetName() << '\n';
-    std::cout << "Правая рука: " << hands.GetRightWeapon().GetName() << '\n';
+    std::cout << "Левая рука: " << hands.getLeftWeapon().getName() << '\n';
+    std::cout << "Правая рука: " << hands.getRightWeapon().getName() << '\n';
 
     MagicWeapon wand("Волшебная палочка", 5.0f, 0.2f, WeaponType::ONEHANDED, 20.0f);
     SingleUseWeapon needle("Игла", 8.0f, 0.1f, WeaponType::ONEHANDED);
-    hands.SetLeftWeapon(wand);
-    hands.SetRightWeapon(needle);
-    std::cout << "Левая рука после SET: " << hands.GetLeftWeapon().GetName() << '\n';
-    std::cout << "Правая рука после SET: " << hands.GetRightWeapon().GetName() << '\n';
-    hands.GetLeftWeapon().Attack();
-    hands.GetRightWeapon().Attack();
-    hands.GetRightWeapon().Attack(); // Флаг сохраняется в объекте внутри hands.
+    hands.setLeftWeapon(wand);
+    hands.setRightWeapon(needle);
+    std::cout << "Левая рука после SET: " << hands.getLeftWeapon().getName() << '\n';
+    std::cout << "Правая рука после SET: " << hands.getRightWeapon().getName() << '\n';
+    hands.getLeftWeapon().attack();
+    hands.getRightWeapon().attack();
+    hands.getRightWeapon().attack(); // Флаг сохраняется в объекте внутри hands.
 
     std::cout << "\nШаблон с целочисленными ID\n";
     WeaponHands<int, int> ids(101, 202);
-    std::cout << "ID слева: " << ids.GetLeftWeapon() << '\n';
-    std::cout << "ID справа: " << ids.GetRightWeapon() << '\n';
-    ids.SetLeftWeapon(303);
-    ids.SetRightWeapon(404);
-    std::cout << "ID слева после SET: " << ids.GetLeftWeapon() << '\n';
-    std::cout << "ID справа после SET: " << ids.GetRightWeapon() << '\n';
+    std::cout << "ID слева: " << ids.getLeftWeapon() << '\n';
+    std::cout << "ID справа: " << ids.getRightWeapon() << '\n';
+    ids.setLeftWeapon(303);
+    ids.setRightWeapon(404);
+    std::cout << "ID слева после SET: " << ids.getLeftWeapon() << '\n';
+    std::cout << "ID справа после SET: " << ids.getRightWeapon() << '\n';
 
     // Все объекты автоматические; weapon лишь указывает на staff.
     return 0;

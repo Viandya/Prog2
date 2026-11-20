@@ -11,5 +11,5 @@ public:
                 WeaponType type, float additionalDamage);
     MagicWeapon();
 
-    float GetAdditionalDamage();
+    float getAdditionalDamage();
 };

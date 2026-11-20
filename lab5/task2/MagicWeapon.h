@@ -11,6 +11,6 @@ public:
                 WeaponType type, float additionalDamage);
     MagicWeapon();
 
-    float GetAdditionalDamage();
-    float GetDamage() override; // Переопределяем виртуальный метод родителя
+    float getAdditionalDamage();
+    float getDamage() override; // Переопределяем виртуальный метод родителя
 };

@@ -7,7 +7,7 @@ SingleUseWeapon::SingleUseWeapon(std::string name, float damage, float weight, W
 SingleUseWeapon::SingleUseWeapon()
     : SingleUseWeapon("Метательный нож", 15.0f, 0.5f, WeaponType::ONEHANDED) {}
 
-void SingleUseWeapon::Attack() {
+void SingleUseWeapon::attack() {
     if (used) {
         std::cout << "Оружие уже было использовано\n";
     } else {

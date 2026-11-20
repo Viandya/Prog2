@@ -13,8 +13,8 @@ int main() {
     };
 
     for (int i = 0; i < 4; i++) {
-        std::cout << weapons[i].GetName() << ": ";
-        WeaponType type = weapons[i].GetType();
+        std::cout << weapons[i].getName() << ": ";
+        WeaponType type = weapons[i].getType();
         if (type == WeaponType::ONEHANDED) {
             std::cout << "Одноручное оружие\n";
         } else if (type == WeaponType::TWOHANDED) {
@@ -31,35 +31,35 @@ int main() {
     player.id = 1;
     player.login = "student";
     player.password = "example123";
-    player.Print();
+    player.print();
 
     MagicWeapon staff("Магический посох", 30.0f, 3.0f, WeaponType::TWOHANDED, 15.0f);
     MagicWeapon defaultMagic;
 
-    std::cout << "Магическое оружие: " << staff.GetName()
-              << ", базовый урон: " << staff.GetDamage()
-              << ", вес: " << staff.GetWeight()
-              << ", дополнительный урон: " << staff.GetAdditionalDamage() << '\n';
-    std::cout << "Магическое оружие по умолчанию: " << defaultMagic.GetName()
-              << ", базовый урон: " << defaultMagic.GetDamage()
-              << ", вес: " << defaultMagic.GetWeight()
-              << ", дополнительный урон: " << defaultMagic.GetAdditionalDamage() << '\n';
+    std::cout << "Магическое оружие: " << staff.getName()
+              << ", базовый урон: " << staff.getDamage()
+              << ", вес: " << staff.getWeight()
+              << ", дополнительный урон: " << staff.getAdditionalDamage() << '\n';
+    std::cout << "Магическое оружие по умолчанию: " << defaultMagic.getName()
+              << ", базовый урон: " << defaultMagic.getDamage()
+              << ", вес: " << defaultMagic.getWeight()
+              << ", дополнительный урон: " << defaultMagic.getAdditionalDamage() << '\n';
 
-    // Унаследованный GetType возвращает тип, переданный в базовый конструктор.
-    if (staff.GetType() == WeaponType::TWOHANDED) {
+    // Унаследованный getType возвращает тип, переданный в базовый конструктор.
+    if (staff.getType() == WeaponType::TWOHANDED) {
         std::cout << "Посох — двуручное оружие.\n";
     }
-    if (defaultMagic.GetType() == WeaponType::ONEHANDED) {
+    if (defaultMagic.getType() == WeaponType::ONEHANDED) {
         std::cout << "Магический кинжал — одноручное оружие.\n";
     }
 
-    staff.SetDamage(35.0f); // SET-метод унаследован от Weapon
-    std::cout << "Базовый урон посоха после SetDamage: " << staff.GetDamage() << '\n';
+    staff.setDamage(35.0f); // SET-метод унаследован от Weapon
+    std::cout << "Базовый урон посоха после setDamage: " << staff.getDamage() << '\n';
     // Булевы значения выводятся как 1 (true) и 0 (false).
-    std::cout << "Посох слишком тяжёлый при лимите 2 кг: " << staff.IsTooHeavy(2.0f) << '\n';
-    std::cout << "Посох слишком тяжёлый при лимите 3 кг: " << staff.IsTooHeavy(3.0f) << '\n';
-    std::cout << "Вес посоха и магического кинжала: " << staff.GetTotalWeight(defaultMagic) << '\n';
-    std::cout << "Вес посоха плюс 2 кг: " << staff.GetTotalWeight(2.0f) << '\n';
+    std::cout << "Посох слишком тяжёлый при лимите 2 кг: " << staff.isTooHeavy(2.0f) << '\n';
+    std::cout << "Посох слишком тяжёлый при лимите 3 кг: " << staff.isTooHeavy(3.0f) << '\n';
+    std::cout << "Вес посоха и магического кинжала: " << staff.getTotalWeight(defaultMagic) << '\n';
+    std::cout << "Вес посоха плюс 2 кг: " << staff.getTotalWeight(2.0f) << '\n';
 
     return 0;
 }

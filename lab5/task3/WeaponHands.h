@@ -14,19 +14,19 @@ public:
         : leftWeapon(leftWeapon), rightWeapon(rightWeapon) {}
 
     // Ссылки позволяют работать именно с объектами, хранящимися в руках.
-    Left& GetLeftWeapon() {
+    Left& getLeftWeapon() {
         return leftWeapon;
     }
 
-    Right& GetRightWeapon() {
+    Right& getRightWeapon() {
         return rightWeapon;
     }
 
-    void SetLeftWeapon(const Left& weapon) {
+    void setLeftWeapon(const Left& weapon) {
         leftWeapon = weapon;
     }
 
-    void SetRightWeapon(const Right& weapon) {
+    void setRightWeapon(const Right& weapon) {
         rightWeapon = weapon;
     }
 };
